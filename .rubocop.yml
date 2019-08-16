@@ -1,0 +1,21 @@
+---
+
+AllCops:
+  TargetRubyVersion: 2.6.3
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength: 
+  Exclude:
+    - config/**/*
+    - db/**/*
+  Max: 100
+
+Style/MixinUsage:
+  Exclude:
+    - bin/setup
+    - bin/update

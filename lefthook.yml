@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    rubocop:
+      glob: "*.{rb}"
+      run: rubocop
+    rspec:
+      run: rspec

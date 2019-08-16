@@ -1,7 +1,8 @@
-class RatesController < ApplicationController
+# frozen_string_literal: true
 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-  
+class RatesController < ApplicationController
+  http_basic_authenticate_with name: 'dhh', password: 'secret', except: %i[index show]
+
   def index
     @rates = Rate.all
     @rates_from_nbkr = NBKRExchangeRates.get_hash_of_rates
@@ -27,12 +28,11 @@ class RatesController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def update
     @rate = Rate.find(params[:id])
- 
+
     if @rate.update(rate_params)
       redirect_to @rate
     else
@@ -43,14 +43,13 @@ class RatesController < ApplicationController
   def destroy
     @rate = Rate.find(params[:id])
     @rate.destroy
- 
+
     redirect_to rates_path
   end
-  
+
   private
 
-    def rate_params
-      params.require(:rate).permit(:date, :currency, :exchange_rate)
-    end
-
+  def rate_params
+    params.require(:rate).permit(:date, :currency, :exchange_rate)
+  end
 end
