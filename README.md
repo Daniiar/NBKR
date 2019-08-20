@@ -5,15 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.6.3
 
-* System dependencies
+* Rails version: 5.2.3
 
-* Configuration
+* Run "bundle"
 
-* Database creation
-
-* Database initialization
+* open crontab "crontab -e" and write, then save it
+  * * * * * /bin/bash -l -c 'cd /home/daniiar/Desktop/NBKR && rails write_exchange_rates'
 
 * How to run the test suite
 

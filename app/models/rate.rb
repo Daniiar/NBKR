@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Rate < ApplicationRecord
-  has_many :comments, dependent: :destroy
+  validates_uniqueness_of :created_date, scope: :currency
 
-  validates :date, presence: true
+  validates :created_date, presence: true
   validates :currency, presence: true
   validates :exchange_rate, presence: true
 end

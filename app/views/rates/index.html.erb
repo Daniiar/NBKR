@@ -1,19 +1,14 @@
 <h1>NBKR exchange rates</h1>
 <table>
   <tr>
-    <th>number</th>
-    <th>date</th>
+    <th>created_date</th>
     <th>currency</th>
     <th>exchange rate</th>
   </tr>
 
-  <% counter = 0 %>
-
   <% @rates.each do |rate| %>
-    <% counter += 1%>
     <tr>
-      <td><%= counter%></td>
-      <td><%= rate.date %></td>
+      <td><%= rate.created_date.strftime('%d.%m.%Y') %></td>
       <td><%= rate.currency %></td>
       <td><%= rate.exchange_rate %></td>
     </tr>
