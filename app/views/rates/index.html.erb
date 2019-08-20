@@ -1,11 +1,4 @@
-<h1>Hello, Rails!</h1>
-
-<%= link_to 'My Blog', controller: 'rates' %>
-
-<h1>Listing rates</h1>
-
-<%= link_to 'New rate', new_rate_path %>
-
+<h1>NBKR exchange rates</h1>
 <table>
   <tr>
     <th>number</th>
@@ -17,23 +10,12 @@
   <% counter = 0 %>
 
   <% @rates.each do |rate| %>
-  <% counter += 1%>
+    <% counter += 1%>
     <tr>
       <td><%= counter%></td>
       <td><%= rate.date %></td>
       <td><%= rate.currency %></td>
       <td><%= rate.exchange_rate %></td>
-      <td><%= link_to 'Show', rate_path(rate) %></td>
-      <td><%= link_to 'Edit', edit_rate_path(rate) %></td>
-      <td><%= link_to 'Destroy', rate_path(rate),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
-
-<br><br>
-<h1>Current exchange rates from NBKR</h1>
-<% @rates_from_nbkr.each do |key, value| %>
-  <h2><%= key + ': ' + value %></h2>
-<% end %>

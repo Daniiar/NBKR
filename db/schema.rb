@@ -12,16 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_812_082_840) do
-  create_table 'comments', force: :cascade do |t|
-    t.string 'commenter'
-    t.text 'body'
-    t.integer 'rate_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['rate_id'], name: 'index_comments_on_rate_id'
-  end
-
+ActiveRecord::Schema.define(version: 20_190_811_064_150) do
   create_table 'rates', force: :cascade do |t|
     t.date 'date'
     t.string 'currency'
