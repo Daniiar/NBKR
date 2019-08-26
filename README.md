@@ -11,8 +11,10 @@ Things you may want to cover:
 
 * Run "bundle"
 
-* open crontab "crontab -e" and write, then save it
-  * * * * * /bin/bash -l -c 'cd /home/daniiar/Desktop/NBKR && rails write_exchange_rates'
+* Run "rails db:migrate"
+
+* open crontab "crontab -e" and write, then save it(exabmple on my machine path)
+  0 * * * * /bin/bash -l -c 'cd /home/daniiar/Desktop/NBKR && rails write_exchange_rates'
 
 * How to run the test suite
 

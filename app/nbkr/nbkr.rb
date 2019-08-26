@@ -26,6 +26,13 @@ class NBKR
     record[0].exchange_rate
   end
 
+  def self.write_logs
+    date_time = Time.now.to_s
+    url = NBKRExchangeRates::URL.to_s
+    info = hash_rates.to_s
+    File.open('log/nbkr.log', 'a') { |f| f.write("#{url} #{date_time} #{info}" + "\n") }
+  end
+
   def self.execute_request
     hash_rates.each do |currency, rate|
       if check_record_existing(currency)
@@ -34,5 +41,6 @@ class NBKR
         create_record(currency, rate)
       end
     end
+    write_logs
   end
 end
