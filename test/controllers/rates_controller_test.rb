@@ -3,8 +3,8 @@
 require 'test_helper'
 
 class RatesControllerTest < ActionDispatch::IntegrationTest
-  test 'should get index' do
-    get rate_index_url
+  test 'should get root path' do
+    get root_path
     assert_response :success
   end
 end

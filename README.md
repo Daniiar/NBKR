@@ -13,10 +13,10 @@ Things you may want to cover:
 
 * Run "rails db:migrate"
 
-* open crontab "crontab -e" and write, then save it(exabmple on my machine path)
+* Open crontab "crontab -e" and write, then save it(exabmple on my machine path to the application)
   0 * * * * /bin/bash -l -c 'cd /home/daniiar/Desktop/NBKR && rails write_exchange_rates'
 
-* How to run the test suite
+* Run "rails test"
 
 * Services (job queues, cache servers, search engines, etc.)
 
