@@ -18,6 +18,8 @@ Things you may want to cover:
 
 * Run "rails test"
 
+* Run "rspec"
+
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
