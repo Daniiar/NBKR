@@ -40,6 +40,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test, :production do
+  gem 'pg'
+end
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
