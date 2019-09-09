@@ -37,8 +37,10 @@ RSpec.describe 'NBKR logs' do
     logs_text = File.read('log/nbkr.log')
     time_of_last_line = Time.parse(logs_text[-97..-73])
     time_diference = Time.now - time_of_last_line
+    rates = NBKR.hash_rates
+    NBKR.write_logs(rates)
 
-    expect(logs_text.include?('https://www.nbkr.kg/XML/daily.xml 2019-08-29')).to eq(true)
+    expect(logs_text.include?('https://www.nbkr.kg/XML/daily.xml ' + Date.today.to_s)).to eq(true)
     expect(logs_text.include?(NBKR.hash_rates.to_s)).to eq(true)
     expect(time_diference < 60).to eq(true)
   end
