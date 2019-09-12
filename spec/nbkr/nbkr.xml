@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<CurrencyRates Name="Daily Exchange Rates" Date="13.09.2019">
+  <Currency ISOCode="USD">
+    <Nominal>1</Nominal>
+    <Value>69,8500</Value>
+  </Currency>
+  <Currency ISOCode="EUR">
+    <Nominal>1</Nominal>
+  <Value>77,0236</Value>
+</Currency>
+  <Currency ISOCode="KZT">
+    <Nominal>1</Nominal>
+  <Value>0,1804</Value>
+</Currency>
+  <Currency ISOCode="RUB">
+    <Nominal>1</Nominal>
+  <Value>1,0715</Value>
+</Currency>
+</CurrencyRates>
