@@ -12,7 +12,7 @@ class NBKR
     File.open('log/nbkr.log', 'a') { |f| f.write("#{url} #{date_time} #{info}" + "\n") }
   end
 
-  def self.execute_request(data)
+  def self.write_to_base(data)
     data.each do |currency, rate|
       rate = rate.split(',').join('.')
       date = Date.today
