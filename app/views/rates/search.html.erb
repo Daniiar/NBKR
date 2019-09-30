@@ -1,0 +1,17 @@
+<h1>For <%= @currency %></h1>
+<table>
+  <tr>
+    <th>created_date</th>
+    <th>currency</th>
+    <th>exchange rate</th>
+  </tr>
+
+  <% @sorted.each do |rate| %>
+    <tr>
+      <td><%= rate.created_date.strftime('%d.%m.%Y') %></td>
+      <td><%= rate.currency %></td>
+      <td><%= rate.exchange_rate %></td>
+    </tr>
+  <% end %>
+</table>
+<%= line_chart @sorted.group(:created_date).sum(:exchange_rate), id: "users-chart", width: "800px", height: "500px" %>

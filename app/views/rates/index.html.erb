@@ -1,3 +1,10 @@
+<%= form_tag(search_path, method: :get) do %>
+    <%= date_select(:start_date, params[:search]) %><br>
+    <%= date_select(:end_date, params[:search]) %><br>
+    <%= select_tag 'currency', options_for_select([ 'EUR', 'USD', 'RUB', 'KZT' ]) %><br>
+    <%= submit_tag('Search') %>
+<% end %>
+
 <h1>NBKR exchange rates</h1>
 <table>
   <tr>
