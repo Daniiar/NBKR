@@ -1,4 +1,6 @@
 <h1>For <%= @currency %></h1>
+<%= link_to "Go back", root_path %><br>
+
 <table>
   <tr>
     <th>created_date</th>
@@ -14,4 +16,5 @@
     </tr>
   <% end %>
 </table>
+
 <%= line_chart @sorted.group(:created_date).sum(:exchange_rate), id: "users-chart", width: "800px", height: "500px" %>
