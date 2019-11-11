@@ -2,31 +2,47 @@
 
 require 'rails_helper.rb'
 
-RSpec.describe RatesController do
-  it 'should get root path' do
-    get :main_page
-    expect(response).to be_successful
+RSpec.describe 'should get main page', type: :feature do
+  fixtures :rates
+  scenario 'action main_page' do
+    visit root_path
+
+    content = [
+      "Total records: 8\nlast 8 records\ncreated_date currency exchange rate ",
+      '02.01.2019 EUR 78.5224 ',
+      '01.01.2019 KZT 0.1796 ',
+      '01.01.2019 RUB 1.098 ',
+      '01.01.2019 EUR 79.5224 ',
+      '02.01.2019 KZT 1.1796 ',
+      '02.01.2019 RUB 2.098 ',
+      '01.01.2019 USD 69.9656 ',
+      '02.01.2019 USD 68.9656'
+    ]
+    expect(page).to have_content(content.join)
   end
 end
 
-RSpec.describe RatesController do
-  it 'should get search rates by dates and currency path' do
-    counter = 1
-    5.times do
-      date = Date.new(2019, 9, 9)
-      Rate.create(created_date: date + counter, currency: 'USD', exchange_rate: 69.5623)
-      Rate.create(created_date: date + counter, currency: 'EUR', exchange_rate: 78.4567)
-      counter += 1
-    end
-    get :search_rates_by_dates_and_currency, params: {
-      'utf8' => '✓',
-      'start_date' => { '(1i)' => '2019', '(2i)' => '10', '(3i)' => '1' },
-      'end_date' => { '(1i)' => '2019', '(2i)' => '11', '(3i)' => '10' },
-      'currency' => 'EUR',
-      'commit' => 'Search',
-      'controller' => 'rates',
-      'action' => 'search_rates_by_dates_and_currency'
-    }
-    expect(response).to be_successful
+RSpec.describe 'should get result of search', type: :feature do
+  fixtures :rates
+  scenario 'action search_rates_by_dates_and_currency' do
+    visit root_path
+
+    content = [
+      'exchange rate 01.01.2019 USD 69.9656 ',
+      "02.01.2019 USD 68.9656\nLoading..."
+    ]
+
+    page.select '2019', from: 'start_date[(1i)]'
+    page.select 'January', from: 'start_date[(2i)]'
+    page.select '1', from: 'start_date[(3i)]'
+
+    page.select '2019', from: 'end_date[(1i)]'
+    page.select 'January', from: 'end_date[(2i)]'
+    page.select '2', from: 'end_date[(3i)]'
+
+    page.select 'USD', from: 'currency'
+    click_on 'Search'
+
+    expect(page).to have_content(content.join)
   end
 end

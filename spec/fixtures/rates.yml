@@ -1,0 +1,39 @@
+one:
+  created_date: 2019-01-01
+  currency: USD
+  exchange_rate: 69.9656
+
+two:
+  created_date: 2019-01-01
+  currency: EUR
+  exchange_rate: 79.5224
+
+three:
+  created_date: 2019-01-01
+  currency: KZT
+  exchange_rate: 0.1796
+
+four:
+  created_date: 2019-01-01
+  currency: RUB
+  exchange_rate: 1.0980
+
+five:
+  created_date: 2019-01-02
+  currency: USD
+  exchange_rate: 68.9656
+
+six:
+  created_date: 2019-01-02
+  currency: EUR
+  exchange_rate: 78.5224
+
+seven:
+  created_date: 2019-01-02
+  currency: KZT
+  exchange_rate: 1.1796
+
+eight:
+  created_date: 2019-01-02
+  currency: RUB
+  exchange_rate: 2.0980
